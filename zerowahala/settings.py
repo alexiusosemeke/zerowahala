@@ -19,6 +19,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '172.20.10.2',
     'localhost',
+    'https://zerowahala.onrender.com',
+    'zerowahala.onrender.com'
 ]
 
 
