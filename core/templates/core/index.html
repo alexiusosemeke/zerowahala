@@ -1,0 +1,243 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}Zero Wahala{% endblock title %}
+{% block header %}
+{% include "layouts/header_nav.html" %}
+{% endblock header %}
+{% block content %}
+<section class="py-24 bg-lavender-grey-100">
+    <div class="max-w-[1440px] mx-auto px-8">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+            <div class="max-w-2xl">
+                <h2 class="font-[Manrope] font-extrabold text-5xl text-deep-forest-950 mb-4">Live Wahala Feed</h2>
+                <p class="text-deep-forest-800 font-inter text-lg italic">The collective exhale. Real-time stress logs from the community.</p>
+            </div>
+            <button class="text-coral-red-500 flex items-center gap-2 font-bold font-[Manrope] group text-xs tracking-[0.2em]">
+                VIEW ALL RECENT VENTS
+                <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+                    <path d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Vent Card 1 -->
+            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-deep-forest-900/5 border border-lavender-grey-200">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-[10px] font-[Manrope] font-black uppercase tracking-wider text-white bg-deep-forest-500 px-4 py-1.5 rounded-full">Work Drama</span>
+                    <span class="text-xs font-[Manrope] text-deep-forest-400 font-bold">2m ago</span>
+                </div>
+                <!-- High Visibility Text -->
+                <p class="text-deep-forest-950 text-xl font-bold mb-10 leading-relaxed font-[Manrope]">
+                    "Meeting that could have been an email turned into a 3-hour saga about font sizes."
+                </p>
+                <div class="flex items-center gap-3 border-t border-lavender-grey-100 pt-6">
+                    <div class="w-10 h-10 rounded-full bg-coral-red-500 flex items-center justify-center text-white font-extrabold text-sm">S</div>
+                    <div class="flex flex-col">
+                        <span class="text-sm text-deep-forest-950 font-extrabold font-[Manrope]">SanitySeeker_01</span>
+                        <span class="text-[10px] text-sage-600 font-bold uppercase">Lagos, NG</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vent Card 2 -->
+            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-deep-forest-900/5 border border-lavender-grey-200">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-[10px] font-[Manrope] font-black uppercase tracking-wider text-white bg-coral-red-500 px-4 py-1.5 rounded-full">Traffic Wahala</span>
+                    <span class="text-xs font-[Manrope] text-deep-forest-400 font-bold">5m ago</span>
+                </div>
+                <p class="text-deep-forest-950 text-xl font-bold mb-10 leading-relaxed font-[Manrope]">
+                    "Gridlock at 11 PM? In this economy? The universe is testing my patience today."
+                </p>
+                <div class="flex items-center gap-3 border-t border-lavender-grey-100 pt-6">
+                    <div class="w-10 h-10 rounded-full bg-deep-forest-500 flex items-center justify-center text-white font-extrabold text-sm">C</div>
+                    <div class="flex flex-col">
+                        <span class="text-sm text-deep-forest-950 font-extrabold font-[Manrope]">CommuterQueen</span>
+                        <span class="text-[10px] text-sage-600 font-bold uppercase">Abuja, NG</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vent Card 3 -->
+            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-deep-forest-900/5 border border-lavender-grey-200">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-[10px] font-[Manrope] font-black uppercase tracking-wider text-white bg-sage-500 px-4 py-1.5 rounded-full">General Chaos</span>
+                    <span class="text-xs font-[Manrope] text-deep-forest-400 font-bold">12m ago</span>
+                </div>
+                <p class="text-deep-forest-950 text-xl font-bold mb-10 leading-relaxed font-[Manrope]">
+                    "Dropped my toast butter-side down. That's it. That's the vent. System shutdown."
+                </p>
+                <div class="flex items-center gap-3 border-t border-lavender-grey-100 pt-6">
+                    <div class="w-10 h-10 rounded-full bg-sage-500 flex items-center justify-center text-white font-extrabold text-sm">T</div>
+                    <div class="flex flex-col">
+                        <span class="text-sm text-deep-forest-950 font-extrabold font-[Manrope]">ToastLoser99</span>
+                        <span class="text-[10px] text-sage-600 font-bold uppercase">PH City, NG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1440px] mx-auto px-8 mb-32">
+    <h2 class="font-[Manrope] font-black text-5xl text-deep-forest-950 mb-16 text-center">Wahala Hall of Fame</h2>
+    
+    <!-- Grid Wrapper -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Large Featured Award -->
+        <div class="lg:col-span-7 h-[500px] bg-deep-forest-900 rounded-[2.5rem] relative overflow-hidden group shadow-2xl shadow-deep-forest-900/20">
+            <img alt="Frustrated professional" 
+                 class="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                 src="{% static "images/frustrated-professional.jpg" %}">
+            
+            <!-- Darker Gradient for text readability -->
+            <div class="absolute inset-0 bg-linear-to-t from-deep-forest-950 via-deep-forest-900/40 to-transparent"></div>
+            
+            <div class="absolute bottom-10 left-10 max-w-md p-2">
+                <h4 class="text-3xl font-[Inter] font-black text-white mb-4">The Monday Morning Marathon</h4>
+                <p class="text-lavender-grey-200 font-inter mb-6 text-lg">Awarded for enduring 12 consecutive back-to-back calls without screaming into a pillow.</p>
+                <span class="text-coral-red-400 font-[Manrope] font-black text-sm tracking-[0.2em] uppercase">Champion: Lexi V.</span>
+            </div>
+        </div>
+
+        <!-- Smaller Side Awards -->
+        <div class="lg:col-span-5 flex flex-col gap-8">
+            
+            <!-- Award 1 -->
+            <div class="bg-white rounded-4xl p-10 flex items-center justify-between border-2 border-lavender-grey-100 shadow-xl shadow-deep-forest-900/5 hover:border-sage-300 transition-colors">
+                <div class="pr-4">
+                    <h5 class="text-2xl font-[Inter] font-bold text-deep-forest-950 mb-2">The 'Empty Battery' Award</h5>
+                    <p class="text-deep-forest-800 font-[Manrope] font-medium opacity-80 text-sm">For when life hits 1% and you still manage to be polite.</p>
+                </div>
+                <div class="size-16 rounded-2xl bg-sage-50 flex items-center justify-center">
+                    <svg xmlns="http://w3.org" class="size-10 text-sage-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 7h2"/><path d="M10 7V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2"/><path d="M18 7H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M15 13a3 3 0 1 1-6 0"/></svg>
+                </div>
+            </div>
+
+            <!-- Award 2 -->
+            <div class="bg-white rounded-4xl p-10 flex items-center justify-between border-2 border-lavender-grey-100 shadow-xl shadow-deep-forest-900/5 hover:border-coral-red-300 transition-colors">
+                <div class="pr-4">
+                    <h5 class="text-2xl font-[Inter] font-bold text-deep-forest-950 mb-2">The 'Quiet Riot' Medal</h5>
+                    <p class="text-deep-forest-800 font-[Manrope] font-medium opacity-80 text-sm">Mastering the art of the inner scream in a public place.</p>
+                </div>
+                <div class="size-16 rounded-2xl bg-coral-red-50 flex items-center justify-center">
+                    <svg xmlns="http://w3.org" class="size-10 text-coral-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.414 7.586a2 2 0 0 1-1.414.586H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1a2 2 0 0 1 1.414.586l3.383 3.382A.705.705 0 0 0 11 17.653Z"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1440px] mx-auto px-8 mb-32 bg-deep-forest-950 py-24 rounded-[3rem] overflow-hidden relative border border-deep-forest-900">
+    <!-- Ambient Glow -->
+    <div class="absolute -right-20 -top-20 w-96 h-96 bg-sage-500/10 blur-[120px] rounded-full"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
+        <!-- Text Content -->
+        <div class="lg:col-span-6 flex flex-col justify-center">
+            <h2 class="font-[Manrope] font-black text-5xl text-sage-100 mb-8 leading-tight">
+                The 'I Can't Kill Myself' <br> <span class="text-sage-500">Mission</span>
+            </h2>
+            
+            <div class="space-y-10">
+                <p class="text-xl text-lavender-grey-200 font-[Inter] leading-relaxed opacity-90">
+                    In a world that demands 110%, we provide the sanctuary for your 0%. Our mission is simple: to normalize the vent. We believe that by releasing tension, we gain resilience.
+                </p>
+
+                <div class="flex flex-col gap-8">
+                    <!-- Feature: Privacy -->
+                    <div class="flex items-start gap-5">
+                        <div class="p-4 bg-deep-forest-900 rounded-2xl border border-deep-forest-800">
+                            <svg xmlns="http://w3.org" class="size-6 text-sage-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                        </div>
+                        <div>
+                            <h6 class="font-[Manrope] font-extrabold text-white text-lg">Radical Privacy</h6>
+                            <p class="text-lavender-grey-400 font-inter text-sm">Your vents are yours. No tracking, no judgment, just release.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature: Community -->
+                    <div class="flex items-start gap-5">
+                        <div class="p-4 bg-deep-forest-900 rounded-2xl border border-deep-forest-800">
+                            <svg xmlns="http://w3.org" class="size-6 text-coral-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div>
+                            <h6 class="font-[Manrope] font-extrabold text-white text-lg">Collective Resilience</h6>
+                            <p class="text-lavender-grey-400 font-inter text-sm">Connect with others who understand the weight of the hustle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Content -->
+        <div class="lg:col-span-6 flex items-center justify-center">
+            <div class="relative w-full max-w-md aspect-square bg-deep-forest-900 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-deep-forest-800">
+                <img alt="Abstract calmness" class="w-full h-full object-cover opacity-60" src="{% static "images/abstract-calmness.jpg" %}">
+                
+                <div class="absolute inset-0 flex items-center justify-center p-6">
+                    <div class="text-center p-10 bg-deep-forest-950/80 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl">
+                        <p class="text-4xl font-poppins font-black text-sage-400 tracking-tighter">SANITY FIRST</p>
+                        <p class="text-[10px] font-[Manrope] font-black tracking-[0.4em] text-white opacity-60 mt-3 uppercase">Our Core Philosophy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-[1440px] mx-auto px-8 mb-32">
+    <h2 class="font-[poppins] font-black text-5xl text-deep-forest-950 mb-16">Scroll of Wisdom</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1: Sage Accent -->
+        <article class="bg-white p-8 rounded-3xl border-2 border-lavender-grey-100 shadow-xl shadow-deep-forest-900/5 hover:-translate-y-2 transition-all duration-300 group">
+            <p class="text-sage-600 mb-4 font-[manrope] font-black text-[10px] uppercase tracking-[0.2em]">Breathwork</p>
+            <h5 class="text-xl font-[manrope] font-extrabold mb-6 text-deep-forest-950 leading-snug">The 4-7-8 method for office chaos.</h5>
+            <a class="text-deep-forest-400 font-manrope font-bold text-xs flex items-center gap-2 group-hover:text-coral-red-500 transition-colors" href="#">
+                READ ARTICLE 
+                <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+        </article>
+
+        <!-- Card 2: Coral Accent -->
+        <article class="bg-white p-8 rounded-3xl border-2 border-lavender-grey-100 shadow-xl shadow-deep-forest-900/5 hover:-translate-y-2 transition-all duration-300 group">
+            <p class="text-coral-red-500 mb-4 font-[manrope] font-black text-[10px] uppercase tracking-[0.2em]">Boundaries</p>
+            <h5 class="text-xl font-[manrope] font-extrabold mb-6 text-deep-forest-950 leading-snug">How to say 'No' without feeling guilty.</h5>
+            <a class="text-deep-forest-400 font-[manrope] font-bold text-xs flex items-center gap-2 group-hover:text-coral-red-500 transition-colors" href="#">
+                READ ARTICLE 
+                <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+        </article>
+
+        <!-- Card 3: Forest Accent -->
+        <article class="bg-white p-8 rounded-3xl border-2 border-lavender-grey-100 shadow-xl shadow-deep-forest-900/5 hover:-translate-y-2 transition-all duration-300 group">
+            <p class="text-deep-forest-500 mb-4 font-[manrope] font-black text-[10px] uppercase tracking-[0.2em]">Sleep Hygiene</p>
+            <h5 class="text-xl font-[manrope] font-extrabold mb-6 text-deep-forest-950 leading-snug">The digital detox before the dream.</h5>
+            <a class="text-deep-forest-400 font-[manrope] font-bold text-xs flex items-center gap-2 group-hover:text-coral-red-500 transition-colors" href="#">
+                READ ARTICLE 
+                <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+        </article>
+
+        <!-- Card 4: Sage Accent -->
+        <article class="bg-white p-8 rounded-3xl border-2 border-lavender-grey-100 shadow-xl shadow-deep-forest-900/5 hover:-translate-y-2 transition-all duration-300 group">
+            <p class="text-sage-600 mb-4 font-[manrope] font-black text-[10px] uppercase tracking-[0.2em]">Rituals</p>
+            <h5 class="text-xl font-[manrope] font-extrabold mb-6 text-deep-forest-950 leading-snug">Morning routines for the weary soul.</h5>
+            <a class="text-deep-forest-400 font-[manrope] font-bold text-xs flex items-center gap-2 group-hover:text-coral-red-500 transition-colors" href="#">
+                READ ARTICLE 
+                <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+        </article>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block footer %}
+{% include "layouts/footer.html" %}
+{% endblock footer %}

@@ -1,0 +1,177 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}Zero Wahala : Login{% endblock title %}
+
+{% block content %}
+<div class="flex flex-col md:flex-row min-h-screen bg-white">
+    <!-- LEFT COLUMN: The "Mood" Section -->
+    <div class="relative w-full md:w-5/12 min-h-[400px] md:min-h-screen flex flex-col justify-between p-8 md:p-16 bg-deep-forest-950 overflow-hidden">
+        
+        <!-- Top Branding -->
+        <div class="z-10">
+            <h1 class="font-[poppins] font-black text-3xl tracking-tighter uppercase text-white">Zero Wahala</h1>
+            <p class="font-[manrope] font-black text-sage-400 tracking-[0.3em] mt-2 uppercase text-[10px]">Atmospheric Resilience</p>
+        </div>
+
+        <!-- Big Hero Text -->
+        <div class="z-10 mt-auto">
+            <h2 class="font-[poppins] text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.9]">
+                Join the community of those who choose to <span class="text-sage-500">exhale.</span>
+            </h2>
+            <div class="mt-8 flex items-center gap-4">
+                <div class="w-12 h-[2px] bg-coral-red-500"></div>
+                <p class="font-[inter] text-lavender-grey-300 text-sm tracking-wide">Start your journey to stillness.</p>
+            </div>
+        </div>
+
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 opacity-40 pointer-events-none">
+            <img class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcTMXGcB4pS_A7uuAGAcVxPhVrWIG7t28efitP6CilylIlYTDB-R8pjzPiv_1a7fN-t7BBbjq2NHLoBp6HxAuTB03RBWwY1fCVRG5-qVRLdFdfj3BiiEMaQqRx-4tvEMswvC6-UtGYr8b1BasdWvOQF73YIhpcigS3QQXf_h4LqlOQ8sGGWTwYJiE7GmENsE5NM0hwyDFGXhMTf8as752FYDqR20wlhRc2ig743Ke10tXWdASBWFq7NQF6IyHpqm1YIIat-s21XKk" alt="Mood Background">
+            <!-- This gradient ensures text is always readable over the image -->
+            <div class="absolute inset-0 bg-linear-to-t from-deep-forest-950 via-transparent to-transparent"></div>
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN: The Form Section -->
+    <div class="w-full md:w-7/12 bg-lavender-grey-50 flex items-center justify-center p-6 md:p-12">
+        <div class="w-full max-w-md">
+            
+            <!-- Header Area -->
+            <div class="mb-12">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-sage-100 text-sage-700 text-[10px] font-black uppercase tracking-widest mb-4">
+                    New Member
+                </span>
+                <h3 class="font-[poppins] text-4xl font-black text-deep-forest-950">Create an account</h3>
+                <p class="font-[inter] text-deep-forest-700 mt-2 text-sm">Fill in your details to begin your venting sessions.</p>
+            </div>
+
+            {% if messages %}
+                <div class="bg-coral-red-50 border border-coral-red-200 text-coral-red-700 px-4 py-3 rounded-xl mb-6 text-sm font-manrope font-bold">
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+                <div class="bg-coral-red-50 border border-coral-red-200 text-coral-red-700 px-4 py-3 rounded-xl mb-6 text-sm font-manrope font-bold">
+                    {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+
+
+            <!-- The Form -->
+            <form class="space-y-6" method="POST">
+                {% csrf_token %}
+                
+                <!-- Input Group: Full Name -->
+                <div class="group relative">
+                    <label class="block text-[10px] font-black text-deep-forest-400 uppercase tracking-widest mb-2 ml-4 group-focus-within:text-sage-600 transition-colors">
+                        Full Name
+                    </label>
+                    <div class="relative bg-white rounded-2xl shadow-sm border-2 border-lavender-grey-200 overflow-hidden transition-all group-focus-within:border-sage-500">
+                        {{form.fullname}}
+                        <!-- Animated focus line -->
+                        <div class="absolute bottom-0 left-0 h-0.5 w-0 bg-sage-500 transition-all duration-300 group-focus-within:w-full"></div>
+                    </div>
+                    {% if form.fullname.errors %}
+                        <p class="text-red-500 text-xs mt-1">
+                            {{ form.fullname.errors.0 }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <!-- Input Group: Username -->
+                <div class="group relative">
+                    <label class="block text-[10px] font-black text-deep-forest-400 uppercase tracking-widest mb-2 ml-4 group-focus-within:text-sage-600 transition-colors">
+                        Username
+                    </label>
+                    <div class="relative bg-white rounded-2xl shadow-sm border-2 border-lavender-grey-200 overflow-hidden transition-all group-focus-within:border-sage-500">
+                       {{form.username}}
+                    </div>
+                    {% if form.username.errors %}
+                        <p class="text-red-500 text-xs mt-1">
+                            {{ form.username.errors.0 }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <!-- Input Group: Email -->
+                <div class="group relative">
+                    <label class="block text-[10px] font-black text-deep-forest-400 uppercase tracking-widest mb-2 ml-4 group-focus-within:text-sage-600 transition-colors">
+                        Email Address
+                    </label>
+                    <div class="relative bg-white rounded-2xl shadow-sm border-2 border-lavender-grey-200 overflow-hidden transition-all group-focus-within:border-sage-500">
+                       {{form.email}}
+                    </div>
+                    {% if form.email.errors %}
+                        <p class="text-red-500 text-xs mt-1">
+                            {{ form.email.errors.0 }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <!-- Input Group: Password -->
+                <div class="group relative">
+                    <label class="block text-[10px] font-black text-deep-forest-400 uppercase tracking-widest mb-2 ml-4 group-focus-within:text-sage-600 transition-colors">
+                        Password
+                    </label>
+                    <div class="relative bg-white rounded-2xl shadow-sm border-2 border-lavender-grey-200 overflow-hidden flex items-center transition-all group-focus-within:border-sage-500">
+                        {{form.password1}}
+                        <div class="absolute bottom-0 left-0 h-0.5 w-0 bg-sage-500 transition-all duration-300 group-focus-within:w-full"></div>
+                    </div>
+                    {% if form.password1.errors %}
+                        <p class="text-red-500 text-xs mt-1">
+                            {{ form.password1.errors.0 }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <!-- Input Group: Password -->
+                <div class="group relative">
+                    <label class="block text-[10px] font-black text-deep-forest-400 uppercase tracking-widest mb-2 ml-4 group-focus-within:text-sage-600 transition-colors">
+                        Confirm Password
+                    </label>
+                    <div class="relative bg-white rounded-2xl shadow-sm border-2 border-lavender-grey-200 overflow-hidden flex items-center transition-all group-focus-within:border-sage-500">
+                       {{form.password2}}
+                        <div class="absolute bottom-0 left-0 h-0.5 w-0 bg-sage-500 transition-all duration-300 group-focus-within:w-full"></div>
+                    </div>
+                    {% if form.password2.errors %}
+                        <p class="text-red-500 text-xs mt-1">
+                            {{ form.password2.errors.0 }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <!-- Checkbox -->
+                <div class="flex items-start gap-3 px-2">
+                    <input class="mt-1 rounded border-lavender-grey-300 text-sage-600 focus:ring-sage-500" type="checkbox">
+                    <label class="font-[inter] text-[11px] text-deep-forest-700 leading-relaxed">
+                        I agree to the <a class="text-sage-600 font-bold hover:underline" href="#">Terms</a> and <a class="text-sage-600 font-bold hover:underline" href="#">Privacy Policy</a>.
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="w-full bg-deep-forest-500 text-white font-[manrope] font-black uppercase tracking-widest py-5 rounded-2xl flex items-center justify-center gap-3 hover:bg-deep-forest-700 active:scale-[0.98] transition-all shadow-xl shadow-deep-forest-500/20">
+                    <span>Submit</span>
+                    <!-- Arrow Icon -->
+                    <svg xmlns="http://w3.org" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </button>
+            </form>
+
+            <!-- Bottom Redirect -->
+            <div class="mt-12 text-center">
+                <p class="font-[inter] text-sm text-deep-forest-800">
+                    Already have a seat in our community? 
+                    <a class="text-coral-red-500 font-black hover:underline decoration-coral-red-200 underline-offset-4 ml-1" href="{% url "accounts:login" %}">Log in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

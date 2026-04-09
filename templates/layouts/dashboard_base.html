@@ -1,0 +1,53 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Zero Wahala : User Dashboard {% endblock title %}</title>
+     {% tailwind_css %}
+    {% block extra_head %}{% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
+</head>
+    <body class="bg-lavender-grey-50 font-inter">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+         {% block sidebar %}
+            {% include "layouts/dashboard_sidebar.html" %}
+         {% endblock sidebar %}
+       
+
+         
+            <!-- Content from your dashboard goes here -->
+            {% block dashboard_content %}{% endblock %}
+
+            {% block bottom_nav %}
+                {% include "layouts/dashboard_bottom_nav.html" %}
+            {% endblock bottom_nav %}
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+document.getElementById('logout-btn').addEventListener('click', function () {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You will be logged out of your account.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, log me out!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('logout-form').submit();
+        }
+    });
+});
+</script>
+</body>
+</html>

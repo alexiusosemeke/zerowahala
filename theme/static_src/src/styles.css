@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://googleapis.com');
+
+/**
+  * A catch-all path to Django template files, JavaScript, and Python files
+  * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
+  *
+  * If your final CSS file is not being updated after code changes, you may want to broaden or narrow
+  * the scope of this path.
+  */
+@source "../../../**/*.{html,py,js}";
+
+@theme {
+   /* Default Body Font (Inter) */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Heading/Display Font (Poppins) */
+  --font-poppins: "Poppins", sans-serif;
+
+  /* Secondary/Accent Font (Manrope) */
+  --font-manrope: "Manrope", sans-serif;
+
+  /* Lavender Grey - #C3CBD6 */
+  --color-lavender-grey: #c3cbd6;
+  --color-lavender-grey-50: #f9fafb;
+  --color-lavender-grey-100: #f3f5f7;
+  --color-lavender-grey-200: #e7eaef;
+  --color-lavender-grey-300: #dbe0e6;
+  --color-lavender-grey-400: #cfd5de;
+  --color-lavender-grey-500: #c3cbd6;
+  --color-lavender-grey-600: #b0b7c1;
+  --color-lavender-grey-700: #9298a0;
+  --color-lavender-grey-800: #757a80;
+  --color-lavender-grey-900: #585b60;
+  --color-lavender-grey-950: #3a3d40;
+
+  /* Sage - #748B6F */
+  --color-sage: #748B6F;
+  --color-sage-50: #f1f3f1;
+  --color-sage-100: #e3e8e2;
+  --color-sage-200: #c7d1c5;
+  --color-sage-300: #acb9a9;
+  --color-sage-400: #90a28c;
+  --color-sage-500: #748b6f;
+  --color-sage-600: #687d64;
+  --color-sage-700: #576853;
+  --color-sage-800: #465343;
+  --color-sage-900: #343f32;
+  --color-sage-950: #232a21;
+
+  /* Deep Forest - #28403D */
+  --color-deep-forest: #28403d;
+  --color-deep-forest-50: #eaecec;
+  --color-deep-forest-100: #d4d9d8;
+  --color-deep-forest-200: #a9b3b1;
+  --color-deep-forest-300: #7e8c8b;
+  --color-deep-forest-400: #536664;
+  --color-deep-forest-500: #28403d;
+  --color-deep-forest-600: #243a37;
+  --color-deep-forest-700: #1e302e;
+  --color-deep-forest-800: #182625;
+  --color-deep-forest-900: #121d1b;
+  --color-deep-forest-950: #0c1312;
+
+  /* Coral Red - #D05663 */
+  --color-coral-red: #D05663;
+  --color-coral-red-50: #faeeef;
+  --color-coral-red-100: #f6dde0;
+  --color-coral-red-200: #ecbbc1;
+  --color-coral-red-300: #e39aa1;
+  --color-coral-red-400: #d97882;
+  --color-coral-red-500: #d05663;
+  --color-coral-red-600: #bb4d59;
+  --color-coral-red-700: #9c404a;
+  --color-coral-red-800: #7d343b;
+  --color-coral-red-900: #5e272d;
+  --color-coral-red-950: #3e1a1e;
+}
+
+/* Set Inter as the global default for the project */
+body {
+  font-family: var(--font-sans);
+}
