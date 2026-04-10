@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth import authenticate, login, logout # for function based views
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_view
 from django.views.generic import View, TemplateView
 from django.urls import reverse_lazy
 from .forms import LoginForm, RegisterForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from vents.forms import VentForm
+from vents.models import Vents
 
 # Create your views here.
 
@@ -33,8 +35,15 @@ def register_view(request):
         form = RegisterForm()
     return render(request, 'accounts/register.html', {'form': form})
 
+
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/home.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['ventForm'] = VentForm()
+        context['recent_vents'] = Vents.objects.filter(user=self.request.user)[:5]
+        return context
+    
 class MyLogoutView(LoginRequiredMixin, LogoutView):
     next_page = reverse_lazy('accounts:login')
